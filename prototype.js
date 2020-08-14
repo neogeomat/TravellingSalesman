@@ -16,7 +16,7 @@ pointsJson.forEach(point => {
 pointsgroup.addTo(map)
 
 // let trip = L.geoJSON();
-$.get(`http://router.project-osrm.org/trip/v1/driving/${pointsJson[0][1]},${pointsJson[0][0]};${pointsJson[1][1]},${pointsJson[1][0]};${pointsJson[2][1]},${pointsJson[2][0]};${pointsJson[3][1]},${pointsJson[3][0]}?steps=true&geometries=geojson&overview=full&annotations=true`, function(data) {
+$.get(`https://router.project-osrm.org/trip/v1/driving/${pointsJson[0][1]},${pointsJson[0][0]};${pointsJson[1][1]},${pointsJson[1][0]};${pointsJson[2][1]},${pointsJson[2][0]};${pointsJson[3][1]},${pointsJson[3][0]}?steps=true&geometries=geojson&overview=full&annotations=true`, function(data) {
     console.log(data);
     trip = L.polyline(L.GeoJSON.coordsToLatLngs(data.trips[0].geometry.coordinates), { color: 'red' }).addTo(map);
     map.fitBounds(trip.getBounds());
