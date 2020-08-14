@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="./app.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
+    <!-- <script src="./bundle.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-wPhSditxIw4NCaDAJBmIQyekLLnsJII&libraries=geometry"></script>
+    <title>Travelling Salesman</title>
+</head>
+
+<body>
+    <div class="tabs">
+        <span id="route-tab" class="active">Traveling Salesman</span>
+    </div>
+    <div id="route">
+        <!-- <h1 class="title">Traveling Salesman</h1> -->
+        <div class="instructions">
+            <h4>
+                Step 1: Click on the map to select some stops for your trip.
+            </h4>
+
+            <span>
+          Routes:
+          <select id="presets" name="presets">
+            <option value="0">Build your own!</option>
+            <option value="2">Test points</option>
+          </select>
+        </span>
+            <h4>
+                Step 2: After you've selected you're stops you can hide the markers if you'd like.
+            </h4>
+            <button id="hide-markers">Toggle Markers</button>
+
+            <div class="buttons sliders">
+                <span>
+            <input id="num-evals" value="67" type="range" min="0" max="100" />
+            <br />
+            <span
+              >Number of evaluations:
+              <span id="display-num-evals">10000</span></span>
+                </span>
+            </div>
+            <h4>
+                Step 3: Click optimize and watch it find one of the shortest routes.
+            </h4>
+            <div class="buttons sliders"></div>
+            <div class="buttons">
+                <button id="runGoog">Optimize Route</button>
+                <h4>
+                    Step 4: Add some more points and try again or clear the map and start over.
+                </h4>
+                <button id="clear-map">Clear Map</button>
+            </div>
+        </div>
+
+        <!-- <div id="map"></div> -->
+        <div id="map"></div>
+    </div>
+    <div id="paint">
+        <canvas id="canvas" width="1000" height="500"></canvas>
+
+        <button id="run">Draw</button>
+    </div>
+</body>
+<link href="prototype.css" />
+<script src="points.json"></script>
+<script src='prototype.js'></script>
+
+</html>
